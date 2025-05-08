@@ -79,12 +79,8 @@
         </div>
     </div>
 
+    <!-- Load QR code library from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
-    <script>
-        if (typeof QRCode === 'undefined') {
-            document.write('<script src="/js/qrcode.min.js"><\/script>');
-        }
-    </script>
     <script>
         function convertLink() {
             const originalLink = document.getElementById('originalLink').value.trim();
@@ -121,8 +117,9 @@
 
                 qrCodeDiv.innerHTML = '';
 
+                // Check if QRCode library is loaded
                 if (typeof QRCode === 'undefined') {
-                    qrCodeDiv.innerHTML = '<p>Error: QR code library failed to load. Please try again later.</p>';
+                    qrCodeDiv.innerHTML = '<p>Error: QR code library failed to load. Please refresh the page or check your internet connection.</p>';
                 } else {
                     new QRCode(qrCodeDiv, {
                         text: newLink,
