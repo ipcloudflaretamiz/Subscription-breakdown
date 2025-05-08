@@ -15,10 +15,9 @@
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
-            min-height: 100vh;
             background-color: #0a0a0a;
             color: #e0e0e0;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,7 +26,7 @@
         }
 
         /* Crystal background elements */
-        .crystal-background {
+        .crystal-bg {
             position: fixed;
             top: 0;
             left: 0;
@@ -37,119 +36,40 @@
             overflow: hidden;
         }
 
-        .crystal {
+        .crystal-shard {
             position: absolute;
-            background: linear-gradient(
-                135deg, 
-                rgba(255, 255, 255, 0.08) 0%, 
-                rgba(255, 255, 255, 0.03) 50%, 
-                rgba(255, 255, 255, 0.01) 100%
-            );
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(30, 30, 40, 0.7), rgba(15, 15, 25, 0.7));
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            transform-style: preserve-3d;
-            perspective: 1000px;
+            transform: skewX(-15deg) skewY(5deg);
         }
 
-        .crystal:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            left: 10%;
-            transform: rotate(15deg);
+        .shard-1 {
+            width: 60%;
+            height: 70%;
+            top: -20%;
+            right: -20%;
         }
 
-        .crystal:nth-child(2) {
-            width: 250px;
-            height: 250px;
-            top: 60%;
-            left: 20%;
-            transform: rotate(45deg);
-        }
-
-        .crystal:nth-child(3) {
-            width: 400px;
-            height: 400px;
-            top: 30%;
-            left: 60%;
-            transform: rotate(-15deg);
-        }
-
-        .crystal:nth-child(4) {
-            width: 200px;
-            height: 200px;
-            top: 70%;
-            left: 70%;
-            transform: rotate(30deg);
-        }
-
-        /* Glow effects */
-        .glow {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: radial-gradient(
-                circle,
-                rgba(100, 100, 255, 0.15) 0%,
-                rgba(70, 70, 200, 0.08) 40%,
-                rgba(0, 0, 0, 0) 70%
-            );
-            filter: blur(20px);
-            opacity: 0.5;
-        }
-
-        .glow:nth-child(1) {
-            top: 20%;
-            left: 30%;
-            background: radial-gradient(
-                circle,
-                rgba(100, 200, 255, 0.15) 0%,
-                rgba(70, 150, 200, 0.08) 40%,
-                rgba(0, 0, 0, 0) 70%
-            );
-        }
-
-        .glow:nth-child(2) {
-            top: 60%;
-            left: 60%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(
-                circle,
-                rgba(150, 100, 255, 0.15) 0%,
-                rgba(120, 70, 200, 0.08) 40%,
-                rgba(0, 0, 0, 0) 70%
-            );
-        }
-
-        .glow:nth-child(3) {
-            top: 30%;
-            left: 70%;
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(
-                circle,
-                rgba(200, 100, 255, 0.15) 0%,
-                rgba(150, 70, 200, 0.08) 40%,
-                rgba(0, 0, 0, 0) 70%
-            );
+        .shard-2 {
+            width: 50%;
+            height: 60%;
+            bottom: -20%;
+            left: -10%;
         }
 
         /* Main container */
         .container {
+            width: 90%;
             max-width: 600px;
-            margin: 40px auto;
             background: rgba(25, 25, 30, 0.7);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            padding: 30px;
             position: relative;
             z-index: 1;
             overflow: hidden;
@@ -188,7 +108,7 @@
             display: block;
             width: 60px;
             height: 2px;
-            background: linear-gradient(90deg, rgba(100, 100, 255, 0.5), rgba(200, 100, 255, 0.5));
+            background: linear-gradient(90deg, rgba(100, 100, 255, 0.5), rgba(150, 100, 255, 0.5));
             margin: 10px auto 0;
         }
 
@@ -292,6 +212,279 @@
             border-radius: 8px;
         }
 
+        /* Glow effects */
+        .glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(30px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .glow-1 {
+            width: 200px;
+            height: 200px;
+            background: #7c4dff;
+            top: -50px;
+            right: -50px;
+        }
+
+        .glow-2 {
+            width: 150px;
+            height: 150px;
+            background: #4d7cff;
+            bottom: 50px;
+            left: -50px;
+        }
+
+        /* Error modal styling */
+        .error-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .error-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .error-container {
+            width: 90%;
+            max-width: 400px;
+            background: rgba(40, 10, 10, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 100, 100, 0.2);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            animation: pulse 3s infinite alternate;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .error-modal.active .error-container {
+            transform: translateY(0);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+            }
+        }
+
+        /* Error header */
+        .error-header {
+            padding: 15px 20px;
+            background: rgba(60, 10, 10, 0.8);
+            border-bottom: 1px solid rgba(255, 100, 100, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .error-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #ff9999;
+        }
+
+        /* Error content */
+        .error-content {
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .error-message {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+
+        .error-message::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255, 100, 100, 0), rgba(255, 100, 100, 0.5), rgba(255, 100, 100, 0));
+        }
+
+        /* Error button */
+        .error-button {
+            background: linear-gradient(to right, #ff3333, #ff5555);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            width: auto;
+            display: inline-block;
+        }
+
+        .error-button:hover {
+            background: linear-gradient(to right, #ff5555, #ff7777);
+            transform: translateY(-2px);
+        }
+
+        .error-button::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .error-button:hover::before {
+            opacity: 1;
+            animation: shine 1.5s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) rotate(30deg);
+            }
+            100% {
+                transform: translateX(100%) rotate(30deg);
+            }
+        }
+
+        /* Error icon */
+        .error-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .error-icon::before,
+        .error-icon::after {
+            content: "";
+            position: absolute;
+            background: #ff5555;
+            border-radius: 2px;
+        }
+
+        .error-icon::before {
+            width: 4px;
+            height: 40px;
+            top: 10px;
+            left: 28px;
+            transform: rotate(45deg);
+        }
+
+        .error-icon::after {
+            width: 4px;
+            height: 40px;
+            top: 10px;
+            left: 28px;
+            transform: rotate(-45deg);
+        }
+
+        /* Crystal fragments in error modal */
+        .crystal-fragment {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(255, 100, 100, 0.1), rgba(255, 50, 50, 0.05));
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            border: 1px solid rgba(255, 100, 100, 0.1);
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+
+        .fragment-1 {
+            width: 40px;
+            height: 40px;
+            top: 20px;
+            right: 30px;
+        }
+
+        .fragment-2 {
+            width: 30px;
+            height: 30px;
+            bottom: 40px;
+            left: 20px;
+        }
+
+        .fragment-3 {
+            width: 25px;
+            height: 25px;
+            top: 50%;
+            right: 10px;
+        }
+
+        /* Error glow effects */
+        .error-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(30px);
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .error-glow-1 {
+            width: 150px;
+            height: 150px;
+            background: #ff3333;
+            top: -50px;
+            right: -50px;
+            animation: glow-pulse 4s infinite alternate;
+        }
+
+        .error-glow-2 {
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+            bottom: -50px;
+            left: -50px;
+            animation: glow-pulse 5s infinite alternate-reverse;
+        }
+
+        @keyframes glow-pulse {
+            0% {
+                opacity: 0.1;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 0.3;
+                transform: scale(1.2);
+            }
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .container {
@@ -299,7 +492,7 @@
                 padding: 20px;
             }
             
-            .crystal {
+            .crystal-shard {
                 opacity: 0.4;
             }
         }
@@ -307,19 +500,44 @@
 </head>
 
 <body>
-    <!-- Crystal background elements -->
-    <div class="crystal-background">
-        <div class="crystal"></div>
-        <div class="crystal"></div>
-        <div class="crystal"></div>
-        <div class="crystal"></div>
-        
-        <!-- Glow effects -->
-        <div class="glow"></div>
-        <div class="glow"></div>
-        <div class="glow"></div>
+    <!-- Crystal background -->
+    <div class="crystal-bg">
+        <div class="crystal-shard shard-1"></div>
+        <div class="crystal-shard shard-2"></div>
     </div>
 
+    <!-- Error modal -->
+    <div id="errorModal" class="error-modal">
+        <div class="error-container">
+            <!-- Error header -->
+            <div class="error-header">
+                <div id="errorTitle" class="error-title">ipcloudflareretamiz.github.io says</div>
+            </div>
+
+            <!-- Error content -->
+            <div class="error-content">
+                <!-- Error icon -->
+                <div class="error-icon"></div>
+                
+                <!-- Error message -->
+                <div id="errorMessage" class="error-message">Please enter a subscription link.</div>
+                
+                <!-- OK button -->
+                <button id="errorOkButton" class="error-button">OK</button>
+            </div>
+
+            <!-- Crystal fragments -->
+            <div class="crystal-fragment fragment-1"></div>
+            <div class="crystal-fragment fragment-2"></div>
+            <div class="crystal-fragment fragment-3"></div>
+
+            <!-- Glow effects -->
+            <div class="error-glow error-glow-1"></div>
+            <div class="error-glow error-glow-2"></div>
+        </div>
+    </div>
+
+    <!-- Main container -->
     <div class="container">
         <h2>Subscription Link Converter</h2>
         <div>
@@ -331,7 +549,7 @@
             <label for="customDomain">Custom Domain for New Link:</label>
             <input type="text" id="customDomain" placeholder="e.g., https://3x-ui.gamingturbo.ir" required>
 
-            <button onclick="convertLink()">Convert</button>
+            <button id="convertButton" onclick="convertLink()">Convert</button>
         </div>
 
         <div id="result" style="display: none;">
@@ -344,21 +562,41 @@
                 <p id="finalLink"></p>
             </div>
         </div>
+
+        <!-- Glow effects -->
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
     </div>
 
     <!-- Load QR code library locally -->
     <script src="js/qrcode.min.js"></script>
     <script>
+        // Show error modal function
+        function showError(message, title = "ipcloudflareretamiz.github.io says") {
+            const errorModal = document.getElementById('errorModal');
+            const errorMessage = document.getElementById('errorMessage');
+            const errorTitle = document.getElementById('errorTitle');
+            
+            errorTitle.textContent = title;
+            errorMessage.textContent = message;
+            errorModal.classList.add('active');
+        }
+
+        // Close error modal
+        document.getElementById('errorOkButton').addEventListener('click', function() {
+            document.getElementById('errorModal').classList.remove('active');
+        });
+
         function convertLink() {
             const originalLink = document.getElementById('originalLink').value.trim();
             const customDomain = document.getElementById('customDomain').value.trim();
 
             if (!originalLink) {
-                alert('Please enter a subscription link.');
+                showError('Please enter a subscription link.');
                 return;
             }
             if (!customDomain) {
-                alert('Please enter a custom domain.');
+                showError('Please enter a custom domain.');
                 return;
             }
 
@@ -387,17 +625,18 @@
                 // Check if QRCode library is loaded
                 if (typeof QRCode === 'undefined') {
                     qrCodeDiv.innerHTML = '<p>Error: QR code library failed to load. Please ensure the library file is correctly included.</p>';
+                    showError('QR code library failed to load. Please ensure the library file is correctly included.');
                 } else {
                     new QRCode(qrCodeDiv, newLink); // Updated syntax for qrcodejs
                 }
             } catch (error) {
-                alert('Invalid URL format. Please enter a valid subscription link and domain.');
+                showError('Invalid URL format. Please enter a valid subscription link and domain.');
             }
         }
 
         // Add subtle animation to crystal elements
         document.addEventListener('DOMContentLoaded', function() {
-            const crystals = document.querySelectorAll('.crystal');
+            const crystals = document.querySelectorAll('.crystal-shard');
             
             // Add subtle floating animation to crystals
             crystals.forEach((crystal, index) => {
@@ -408,8 +647,8 @@
             const style = document.createElement('style');
             style.textContent = `
                 @keyframes float {
-                    0% { transform: translateY(0) rotate(${Math.random() * 45}deg); }
-                    100% { transform: translateY(-20px) rotate(${Math.random() * 45 + 5}deg); }
+                    0% { transform: translateY(0) skewX(-15deg) skewY(5deg); }
+                    100% { transform: translateY(-20px) skewX(-15deg) skewY(5deg); }
                 }
             `;
             document.head.appendChild(style);
