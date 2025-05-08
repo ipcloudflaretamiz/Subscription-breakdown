@@ -83,12 +83,10 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.03) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
+            background: linear-gradient(to bottom right,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.03) 50%,
+                    rgba(255, 255, 255, 0) 100%);
             transform: rotate(30deg);
             pointer-events: none;
             z-index: -1;
@@ -185,25 +183,6 @@
             text-decoration: underline;
         }
 
-        #finalOutput {
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(100, 100, 255, 0.1);
-            border-left: 4px solid rgba(150, 100, 255, 0.5);
-            border-radius: 4px;
-        }
-
-        #finalOutput h4 {
-            color: #cccccc;
-            margin-bottom: 10px;
-            font-weight: 400;
-        }
-
-        #finalLink {
-            color: #ffffff;
-            word-break: break-all;
-        }
-
         #qrcode {
             margin: 15px 0;
             background: rgba(255, 255, 255, 0.9);
@@ -258,12 +237,10 @@
             left: -100%;
             width: 300%;
             height: 300%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.05) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
+            background: linear-gradient(to bottom right,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.05) 50%,
+                    rgba(255, 255, 255, 0) 100%);
             transform: rotate(30deg);
             pointer-events: none;
             z-index: -1;
@@ -274,6 +251,7 @@
             0% {
                 transform: rotate(30deg) translateX(-30%);
             }
+
             100% {
                 transform: rotate(30deg) translateX(30%);
             }
@@ -376,6 +354,7 @@
             0% {
                 box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
             }
+
             100% {
                 box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
             }
@@ -450,12 +429,10 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.1) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
+            background: linear-gradient(to bottom right,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.1) 50%,
+                    rgba(255, 255, 255, 0) 100%);
             transform: rotate(30deg);
             transition: all 0.5s ease;
             opacity: 0;
@@ -470,6 +447,7 @@
             0% {
                 transform: translateX(-100%) rotate(30deg);
             }
+
             100% {
                 transform: translateX(100%) rotate(30deg);
             }
@@ -571,6 +549,7 @@
                 opacity: 0.1;
                 transform: scale(0.8);
             }
+
             100% {
                 opacity: 0.3;
                 transform: scale(1.2);
@@ -583,7 +562,7 @@
                 margin: 20px;
                 padding: 20px;
             }
-            
+
             .crystal-shard {
                 opacity: 0.4;
             }
@@ -610,10 +589,10 @@
             <div class="error-content">
                 <!-- Error icon -->
                 <div class="error-icon"></div>
-                
+
                 <!-- Error message -->
                 <div id="errorMessage" class="error-message">Please enter a subscription link.</div>
-                
+
                 <!-- OK button -->
                 <button id="errorOkButton" class="error-button">OK</button>
             </div>
@@ -649,11 +628,11 @@
             <div class="crystal-result-section">
                 <h3>New Subscription Link:</h3>
                 <p id="newLink"></p>
-                
+
                 <!-- Crystal fragments -->
                 <div class="result-fragment result-fragment-1"></div>
                 <div class="result-fragment result-fragment-2"></div>
-                
+
                 <!-- Glow effects -->
                 <div class="result-glow result-glow-1"></div>
                 <div class="result-glow result-glow-2"></div>
@@ -661,10 +640,6 @@
 
             <h3>QR Code:</h3>
             <div id="qrcode"></div>
-            <div id="finalOutput">
-                <h4>Final Output:</h4>
-                <p id="finalLink"></p>
-            </div>
         </div>
 
         <!-- Glow effects -->
@@ -680,14 +655,14 @@
             const errorModal = document.getElementById('errorModal');
             const errorMessage = document.getElementById('errorMessage');
             const errorTitle = document.getElementById('errorTitle');
-            
+
             errorTitle.textContent = title;
             errorMessage.textContent = message;
             errorModal.classList.add('active');
         }
 
         // Close error modal
-        document.getElementById('errorOkButton').addEventListener('click', function() {
+        document.getElementById('errorOkButton').addEventListener('click', function () {
             document.getElementById('errorModal').classList.remove('active');
         });
 
@@ -717,11 +692,9 @@
 
                 const resultDiv = document.getElementById('result');
                 const newLinkElement = document.getElementById('newLink');
-                const finalLinkElement = document.getElementById('finalLink');
                 const qrCodeDiv = document.getElementById('qrcode');
 
                 newLinkElement.innerHTML = `<a href="${newLink}" target="_blank">${newLink}</a>`;
-                finalLinkElement.textContent = newLink;
                 resultDiv.style.display = 'block';
 
                 qrCodeDiv.innerHTML = '';
@@ -739,14 +712,14 @@
         }
 
         // Add subtle animation to crystal elements
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const crystals = document.querySelectorAll('.crystal-shard');
-            
+
             // Add subtle floating animation to crystals
             crystals.forEach((crystal, index) => {
                 crystal.style.animation = `float ${8 + index}s infinite ease-in-out alternate`;
             });
-            
+
             // Add keyframes for float animation
             const style = document.createElement('style');
             style.textContent = `
