@@ -237,6 +237,98 @@
             left: -50px;
         }
 
+        /* Crystal result section - replacing the green outline */
+        .crystal-result-section {
+            position: relative;
+            margin-bottom: 30px;
+            background: rgba(40, 40, 60, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Crystal shine effect for result section */
+        .crystal-result-section::before {
+            content: "";
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.05) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            pointer-events: none;
+            z-index: -1;
+            animation: crystal-shine 8s infinite linear;
+        }
+
+        @keyframes crystal-shine {
+            0% {
+                transform: rotate(30deg) translateX(-30%);
+            }
+            100% {
+                transform: rotate(30deg) translateX(30%);
+            }
+        }
+
+        /* Crystal fragments for result section */
+        .result-fragment {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+
+        .result-fragment-1 {
+            width: 40px;
+            height: 40px;
+            top: 20px;
+            right: 30px;
+        }
+
+        .result-fragment-2 {
+            width: 30px;
+            height: 30px;
+            bottom: 40px;
+            left: 20px;
+        }
+
+        /* Result section glow */
+        .result-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(30px);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .result-glow-1 {
+            width: 150px;
+            height: 150px;
+            background: #7c4dff;
+            top: -50px;
+            right: -50px;
+        }
+
+        .result-glow-2 {
+            width: 100px;
+            height: 100px;
+            background: #4d7cff;
+            bottom: -50px;
+            left: -50px;
+        }
+
         /* Error modal styling */
         .error-modal {
             position: fixed;
@@ -553,8 +645,20 @@
         </div>
 
         <div id="result" style="display: none;">
-            <h3>New Subscription Link:</h3>
-            <p id="newLink"></p>
+            <!-- Crystal result section - replacing the green outline -->
+            <div class="crystal-result-section">
+                <h3>New Subscription Link:</h3>
+                <p id="newLink"></p>
+                
+                <!-- Crystal fragments -->
+                <div class="result-fragment result-fragment-1"></div>
+                <div class="result-fragment result-fragment-2"></div>
+                
+                <!-- Glow effects -->
+                <div class="result-glow result-glow-1"></div>
+                <div class="result-glow result-glow-2"></div>
+            </div>
+
             <h3>QR Code:</h3>
             <div id="qrcode"></div>
             <div id="finalOutput">
